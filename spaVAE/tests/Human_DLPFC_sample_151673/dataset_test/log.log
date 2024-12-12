@@ -1,0 +1,38 @@
+2024-12-11 17:36:42,413 - test - INFO - spaVAE(
+  (svgp): SVGP(
+    (kernel): CauchyKernel()
+  )
+  (encoder): DenseEncoder(
+    (layers): ModuleList(
+      (0): Linear(in_features=3000, out_features=128, bias=True)
+      (1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): ELU(alpha=1.0)
+      (3): Linear(in_features=128, out_features=64, bias=True)
+      (4): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): ELU(alpha=1.0)
+    )
+    (enc_mu): Linear(in_features=64, out_features=10, bias=True)
+    (enc_var): Linear(in_features=64, out_features=10, bias=True)
+  )
+  (decoder): DenseDecoder(
+    (layers): ModuleList(
+      (0): Linear(in_features=10, out_features=128, bias=True)
+      (1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): ELU(alpha=1.0)
+    )
+    (dec_mu): Sequential(
+      (0): Linear(in_features=128, out_features=3000, bias=True)
+      (1): MeanAct()
+    )
+  )
+)
+Trainable parameters: 785733
+2024-12-11 17:36:42,427 - test - INFO - batch_num - loss - NBMetric
+2024-12-11 17:36:42,873 - test - INFO - 1 - 2814.8886896869394 - 2810.942753460233
+2024-12-11 17:36:43,209 - test - INFO - 2 - 2809.6087060106647 - 2805.4622074814442
+2024-12-11 17:36:43,523 - test - INFO - 3 - 2731.229851607098 - 2727.329397415664
+2024-12-11 17:36:43,844 - test - INFO - 4 - 2756.0607600212975 - 2752.2312454693074
+2024-12-11 17:36:44,199 - test - INFO - 5 - 2761.2285066386535 - 2757.451112428903
+2024-12-11 17:36:44,533 - test - INFO - 6 - 2775.52383225762 - 2771.666506955703
+2024-12-11 17:36:44,854 - test - INFO - 7 - 2762.789162077358 - 2759.001573584631
+2024-12-11 17:36:44,895 - test - INFO - 8 - 2622.5767201741583 - 2618.484048766469

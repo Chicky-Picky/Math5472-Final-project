@@ -1,0 +1,74 @@
+{
+    "outdir": "Human_DLPFC_sample_151673",
+    "device": "cpu",
+    "arch": {
+        "type": "spaVAE",
+        "args": {
+            "in_features": 3000,
+            "GP_dim": 2,
+            "Normal_dim": 8,
+            "encoder_hidden_dims": [128, 64],
+            "decoder_hidden_dims": [128],
+            "train_size": 3458,
+            "KL_loss": 0.025
+        }
+    },
+    "dataset": {
+        "type": "SpatialCountDataset",
+        "args": {
+            "root": "/Users/akazovskaia/Documents/MATH5472/Final/examples/Human_DLPFC/sample_151673",
+            "raw_data_filename": "sample_151673.h5"
+        }
+    },
+    "dataset_test": {
+        "type": "SpatialCountDataset",
+        "args": {
+            "root": "/Users/akazovskaia/Documents/MATH5472/Final/examples/Human_DLPFC/sample_151673",
+            "raw_data_filename": "sample_151673.h5"
+        }
+    },
+    "dataset_transforms": {},
+    "dataloader": {
+        "type": "set_dataloaders",
+        "args": {
+            "batch_size": 512,
+            "shuffle": true,
+            "validation_split": 0.05,
+            "num_workers": 2
+        }
+    },
+    "optimizer": {
+        "type": "AdamW",
+        "args": {
+            "lr": 0.1,
+            "weight_decay": 0.000001
+        }
+    },
+     "loss": {
+          "type": "ELBO",
+          "args": {}
+      },
+      "metrics": {
+          "metric_1": {
+              "type": "NBMetric",
+              "args": {}
+          }
+      },
+      "lr_scheduler": {
+          "type": "ReduceLROnPlateau",
+          "args": {
+              "factor": 0.75,
+              "patience": 15
+          }
+      },
+      "trainer": {
+          "type": "Trainer",
+          "args": {
+              "epochs": 1500,
+              "checkpoint_freq": 50,
+              "monitor": "min val_loss",
+              "early_stop": 50,
+              "tensorboard": true
+          }
+      }
+  }

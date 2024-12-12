@@ -1,0 +1,43 @@
+2024-12-11 18:23:42,295 - test - INFO - spaVAE(
+  (svgp): SVGP(
+    (kernel): ExpQuadKernel()
+  )
+  (encoder): ConvEncoder(
+    (layers): ModuleList(
+      (0): Conv1d(1, 2, kernel_size=(5,), stride=(1,))
+      (1): ELU(alpha=1.0)
+      (2): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (3): Linear(in_features=1006, out_features=128, bias=True)
+      (4): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): ELU(alpha=1.0)
+      (6): Linear(in_features=128, out_features=64, bias=True)
+      (7): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (8): ELU(alpha=1.0)
+    )
+    (enc_mu): Linear(in_features=64, out_features=10, bias=True)
+    (enc_var): Linear(in_features=64, out_features=10, bias=True)
+  )
+  (decoder): DenseDecoder(
+    (layers): ModuleList(
+      (0): Linear(in_features=10, out_features=128, bias=True)
+      (1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): ELU(alpha=1.0)
+    )
+    (dec_mu): Sequential(
+      (0): Linear(in_features=128, out_features=1011, bias=True)
+      (1): MeanAct()
+    )
+  )
+)
+Trainable parameters: 271943
+2024-12-11 18:23:42,302 - test - INFO - batch_num - loss - NBMetric
+2024-12-11 18:23:42,571 - test - INFO - 1 - 1023.6459957113909 - 1022.8655481360192
+2024-12-11 18:23:42,797 - test - INFO - 2 - 989.9587971044451 - 989.2461340932198
+2024-12-11 18:23:43,022 - test - INFO - 3 - 984.0043888549582 - 983.2144845284175
+2024-12-11 18:23:43,223 - test - INFO - 4 - 978.8298828426141 - 978.0951092055715
+2024-12-11 18:23:43,420 - test - INFO - 5 - 992.9125720392249 - 992.1534505817265
+2024-12-11 18:23:43,610 - test - INFO - 6 - 998.5136132923211 - 997.7683899813175
+2024-12-11 18:23:43,804 - test - INFO - 7 - 997.7879047449701 - 996.9780231167033
+2024-12-11 18:23:43,996 - test - INFO - 8 - 967.1256405483904 - 966.3697254814313
+2024-12-11 18:23:44,186 - test - INFO - 9 - 960.3984069997371 - 959.7008029626047
+2024-12-11 18:23:44,203 - test - INFO - 10 - 936.6453184750269 - 935.862091384177

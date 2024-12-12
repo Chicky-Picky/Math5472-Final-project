@@ -1,0 +1,9 @@
+h5py==3.12.1
+matplotlib==3.7.1
+numpy==2.2.0
+pandas==2.2.3
+scanpy==1.10.4
+scikit_learn==1.6.0
+torch==2.5.1
+tqdm==4.66.6
+umap_learn==0.5.7
